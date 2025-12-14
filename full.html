@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>3D Snake – Full</title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        canvas {
+            display: block;
+        }
+
+        #overlay {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            background: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-family: Arial, sans-serif;
+            font-size: 13px;
+            z-index: 10;
+        }
+
+        #status {
+            margin-top: 4px;
+            font-size: 11px;
+            color: #dddddd;
+        }
+
+        /* Game Over 面板 */
+        #gameOverPanel {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.85);
+            color: #fff;
+            padding: 20px 30px;
+            border-radius: 8px;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            z-index: 20;
+            display: none;
+        }
+
+        #gameOverPanel h2 {
+            margin: 0 0 10px;
+            font-size: 22px;
+        }
+
+        #gameOverPanel p {
+            margin: 4px 0;
+            font-size: 13px;
+        }
+
+        #restartButton {
+            margin-top: 12px;
+            padding: 6px 16px;
+            border-radius: 4px;
+            border: none;
+            background: #00c853;
+            color: #fff;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        #restartButton:hover {
+            background: #00e676;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="overlay">
+        <div><strong>3D Snake – Full</strong></div>
+        <div>Group ID: 0001</div>
+        <div>W A S D: move</div>
+        <div>Mouse: rotate view</div>
+        <div id="score">Score: 0</div>
+        <div id="status"></div>
+    </div>
+
+    <!-- Game Over 面板 -->
+    <div id="gameOverPanel">
+        <h2>Game Over</h2>
+        <p id="gameOverReason"></p>
+        <p>Score: <span id="finalScore"></span></p>
+        <button id="restartButton">Restart</button>
+    </div>
+
+    <!-- three.js + OrbitControls -->
+    <script src="https://unpkg.com/three@0.146.0/build/three.min.js"></script>
+    <script src="https://unpkg.com/three@0.146.0/examples/js/controls/OrbitControls.js"></script>
+
+    <!-- Full 版本逻辑 -->
+    <script src="js/snakeFull.js"></script>
+</body>
+
+</html>
